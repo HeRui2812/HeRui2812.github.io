@@ -1,0 +1,828 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.1"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><meta name="keywords" content="[object Object]"><meta name="description" content="working&amp;nbsp"><meta name="author" content="herui"><title>working note - 绿色薄荷</title><meta description="working&amp;amp;nbsp;note    1.不注重流程，项目中事情的先后顺序。    2.技术能力一般，对于一些错误出现，分析不到位。    3.需求理解能力一般。    4.基本全靠混，代码理解能力和业务理解能力都不怎么样。"><meta property="og:type" content="article"><meta property="og:title" content="working note"><meta property="og:url" content="https://hr2812.cn/2019/06/12/crawl-ydybj-1560241659811/"><meta property="og:site_name" content="肉の丸子"><meta property="og:description" content="working&amp;amp;nbsp;note    1.不注重流程，项目中事情的先后顺序。    2.技术能力一般，对于一些错误出现，分析不到位。    3.需求理解能力一般。    4.基本全靠混，代码理解能力和业务理解能力都不怎么样。"><meta property="og:locale" content="zh"><meta property="article:published_time" content="2019-06-12T11:27:39.000Z"><meta property="article:modified_time" content="2020-09-23T09:50:32.203Z"><meta property="article:author" content="herui"><meta property="article:tag" content="有道云笔记"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://hr2812.cn/img/avatar.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://hr2812.cn/2019/06/12/crawl-ydybj-1560241659811/"},"headline":"working note","image":["https://hr2812.cn/img/avatar.png"],"datePublished":"2019-06-12T11:27:39.000Z","dateModified":"2020-09-23T09:50:32.203Z","author":{"@type":"Person","name":"herui"},"description":"working&amp;nbsp;note    1.不注重流程，项目中事情的先后顺序。    2.技术能力一般，对于一些错误出现，分析不到位。    3.需求理解能力一般。    4.基本全靠混，代码理解能力和业务理解能力都不怎么样。"}</script><link rel="alternative" href="/atom.xml" title="绿色薄荷" type="application/atom+xml"><link rel="icon" href="/img/favicon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.12/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/e-style.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><link rel="stylesheet" href="/live2d/waifu.css"><script type="text/javascript" async src="/live2d/autoload.js"></script></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.png" alt="绿色薄荷" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/media">影音</a><a class="navbar-item" href="/album">相册</a><a class="navbar-item" href="/friend">友链</a><a class="navbar-item" href="/self-talking">碎碎念</a><a class="navbar-item" href="/message">留言</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/HeRui2812"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Suche" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2019-06-12  <a class="commentCountImg" href="/2019/06/12/crawl-ydybj-1560241659811/#comment-container"><span class="display-none-class">a1fbfecbb2b2848718212e7dbec6e1ea</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="a1fbfecbb2b2848718212e7dbec6e1ea">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>17 m  <i class="fas fa-pencil-alt"> </i>2.5 k</span><span class="level-item" id="busuanzi_container_page_pv"><i class="far fa-eye"></i>&nbsp;&nbsp;<span id="busuanzi_value_page_pv">0</span> Besuche</span></div></div><h1 class="title is-3 is-size-4-mobile">working note</h1><div class="content"><div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Arial Black;">working&nbsp;note</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">1.不注重流程，项目中事情的先后顺序。</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">2.技术能力一般，对于一些错误出现，分析不到位。</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">3.需求理解能力一般。</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">4.基本全靠混，代码理解能力和业务理解能力都不怎么样。</span>
+</div>
+<a id="more"></a>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">##06.03</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">1.承兑商充值USDT，根据充值记录和承兑商身份，赠送充值奖励。编写定时任务。</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">##06.04</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">1.承兑商与第三方平台会员交易，根据承兑商等级获取相应的佣金。</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">2.理清用户注册码，开始做用户推荐奖金。</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">##06.05</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">1.上午修改了第三方提现接口，重启服务一些事情</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">2.下午完成承兑商推荐奖金相关逻辑，检查代码等。</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">##06.06</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">1.上午修改订单倒计时相关的接口，订单超时自动撤销单</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">2.下午看了多线程的相关知识。</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">##06.10</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">1.多种支付方式相关代码修改</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">2.dapp_mlf_user_pay_info表增加了status、quota字段</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">##06.11</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">1.承兑商&nbsp;-&nbsp;payChannel定时任务，查最近两天的交易记录</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">2.承兑商首充赠金&nbsp;-&nbsp;btc定时任务，根据爬取的充值记录、承兑商身份等，赠送首充金额</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">3.承兑商佣金&nbsp;-&nbsp;payChannel中第三方承兑商确认收款后，根据承兑商身份赠送佣金</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">4.承兑商推荐奖&nbsp;-&nbsp;payChannel中第三方承兑商确认收款后，根据承兑商身份和用户管理赠送给父级推荐奖</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">##06.12</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">1.做一些服务器部署的事情</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">2.联调支付方式相关接口</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">##06.13</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">1.修改禅道上面的bug</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;">2.修改市商认证接口</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ ##06.14
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 1.广告表增加deal_type字段，区分手动撮合(OTC)和自动撮合
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 2.用户支付方式，如果一个支付方式正在使用中，不给禁用和删除，怎么判断正在使用中呢，在发布广告时是没有选择具体是哪一个支付方式的，选择的只是大概的范围，WX,ZFB,BANK三种。所以只能判断订单，
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 2.解决方法：在order表中增加一个order_pay_id字段，每次买家购买产生订单时，保存进去，修改pay方法
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 3.修改支付信息的删除和禁用接口
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ ##06.15
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 1.主要在搞广告列表显示的内容，排序要保证加载第一页时是不一样的数据，不重新加载，不影响翻页。且后面的数据排序正常，根据后台配置的那个最大页码数，来确定最大的pageNum大小、当超过后台配置的最大页码数时，返回一个空的数组。
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ ##06.17
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 1.修改卖家确认收款bug
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 2.修改绑定支付信息bug，重复又是删除的支付信息
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 3.测试第三方提现接口
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 4.修改市商认证的bug，当认证不通过后，重新上传会包错。update
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ ##06.18
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 1.修改订单确认收款、获取广告列表方法中的一些非空判断。
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 2.定时查询广告，筛选出不符合要求的广告，改为已完成或者取消状态。
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 3.加入实名认证的使用，在发布订单、广告中添加。
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ ##06.19
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 1.修改申诉成功后的操作，后台管理IDE申诉服务
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 2.修改用户邀请码相关代码
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 3.承兑商增加密码
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Tahoma;color:#3c4353;">买方申诉成功(卖方驳回)，转账到买方对应钱包，交易成功状态</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Tahoma;color:#3c4353;">卖方申诉成功(买方驳回)，卖方增加可用余额，减少冻结余额，交易取消状态</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Tahoma;color:#3c4353;">4.OTC交易手续费扣买家还是卖家的呢？</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 1.99&nbsp;49747.85&nbsp;&nbsp;253&nbsp;&nbsp;5USDT&nbsp;505CNY&nbsp;
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 2.33&nbsp;666440.40&nbsp;252.60&nbsp;
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ sell&nbsp;&nbsp;33&nbsp;&nbsp;671567.40&nbsp;135.60&nbsp;&nbsp;671703.00&nbsp;&nbsp;3&nbsp;USDT&nbsp;
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ sell&nbsp;&nbsp;33&nbsp;&nbsp;671570.40&nbsp;132.60&nbsp;&nbsp;671706.00&nbsp;&nbsp;3&nbsp;USDT&nbsp;
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ buy&nbsp;&nbsp;99&nbsp;49727.85&nbsp;&nbsp;45030.00&nbsp;&nbsp;94757.85&nbsp;&nbsp;3&nbsp;USDT
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ sell&nbsp;671565.40&nbsp;137.60&nbsp;&nbsp;671703.00&nbsp;&nbsp;&nbsp;33
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ BUY&nbsp;49727.85&nbsp;45030.00&nbsp;94757.85&nbsp;99
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ ##06.20
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 1.修改承兑商增加密码
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 2.user_login表中增加了承兑商密码字段
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 3.承兑商认证从第三方交易中获取数据
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 4.周五交的PPT
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 5.ssoIner增加服务间调用接口
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 6.
+ <span style="font-family:SimSun,STSong;background-color:#ffffff;">订单超时根据后台配置的时间来计算，返回给页面的时间接口，后台计算</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:SimSun,STSong;background-color:#ffffff;">7.广告列表接口修改，只显示含OTC标签的广告。发布广告时，只有承兑商才能选择标签，增加是否承兑商校验接口。</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 8.自己主动撤销广告不会解冻余额。
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 9.注册时邀请码相关逻辑修改
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 10.通过了市商认证就是承兑商，承兑商才可以发布自动撮合的广告
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 670706.40&nbsp;&nbsp;&nbsp;791.60&nbsp;&nbsp;671498.00
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ ##06.21
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 1.
+ <span style="font-family:SimSun,STSong;background-color:#ffffff;">发布广告，没有通过市商认证时，隐藏标签选择。页面修改</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:SimSun,STSong;background-color:#ffffff;">2.订单超时那儿页面功能恢复</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:SimSun,STSong;background-color:#ffffff;">3.实名认证那部分刷新，判断。</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:SimSun,STSong;background-color:#ffffff;">##06.24</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:SimSun,STSong;background-color:#ffffff;">1.修改bug</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:SimSun,STSong;background-color:#ffffff;">2.回顾java一些基础知识，switch、流操作等</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ ##06.25
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 1.修改承兑商佣金和推荐奖金的bug
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 2.钱包中奖金，发布广告时怎么扣取？
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ ##06.26
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 1.测试，修改推奖金bug
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ ##06.27
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 1.确认收款发生异常后，事物没有回滚
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 2.修改那个支付方式接口，禅道bug
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 购买方&nbsp;33&nbsp;：679175.55 678497.95 667.60
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 出售方&nbsp;111：12521.20 7381.00 5100.00
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ /by&nbsp;zero&nbsp;事物并未回滚&nbsp;60USDT
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 购买方&nbsp;33&nbsp;：679226.55 678548.95 677.60
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 出售方&nbsp;111：12521.20 7381.00 5040.00
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 第三方购买40个usdt，400，
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 解决加上那个东西
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;color:#808000;background-color:#ffffff;">@TxTransaction</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;color:#808000;background-color:#ffffff;">问题：</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;color:#808000;background-color:#ffffff;">1.分布式事务那儿存在问题，确认收款，pay这边是发起方，btc那边是参与方，参与方出现异常，参与方不回滚。发起方回滚。加上isStart=true后，参与方、发起方都会回滚。</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;color:#808000;background-color:#ffffff;">但是业务完成后，所有的操作都会回滚，无报错信息，SQL正常打印。目前对LCN这个还不太熟悉，后面想起来了修改。</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;color:#808000;background-color:#ffffff;">2.财务记录显示限制，佣金显示小数精确的位数</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;color:#808000;background-color:#ffffff;">3.推荐奖金那儿，数量为0就不保存进数据库了。</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;color:#808000;background-color:#ffffff;">##06.28</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;color:#808000;background-color:#ffffff;">1.</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;color:#808000;background-color:#ffffff;">OTC目前配置为扣卖家的，OTC&nbsp;费率：0.15&nbsp;</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;color:#808000;background-color:#ffffff;">发布了50个，卖家应该冻结&nbsp;50+50*0.15&nbsp;=&nbsp;57.5&nbsp;</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;color:#808000;background-color:#ffffff;">发布广告前：679237.10&nbsp;&nbsp;&nbsp;685.60&nbsp;&nbsp;679922.70</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;color:#808000;background-color:#ffffff;">发布广告后：679182.10&nbsp;&nbsp;&nbsp;740.6&nbsp;&nbsp;&nbsp;679922.70</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;color:#808000;background-color:#ffffff;">99</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;color:#808000;background-color:#ffffff;">94936.50 35023.00 59913.50</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;color:#808000;background-color:#ffffff;">94936.50 34893.00 60043.50</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;color:#808000;background-color:#ffffff;">94936.50 34843.00 60093.50</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;color:#808000;background-color:#ffffff;">卖家减去数量，扣款减去冻结余额，手续费直接减可用余额</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;color:#808000;background-color:#ffffff;">94914.50 34841.00 60073.50</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="font-family:Courier New;color:#808000;background-color:#ffffff;">679927.70 679187.10 740.60</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ ##07.01
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 1.注册Feign调用接口报：Caused&nbsp;by:&nbsp;java.net.SocketTimeoutException:&nbsp;Read&nbsp;timed&nbsp;out错误
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 2.eth报错：GC&nbsp;overhead&nbsp;limit&nbsp;exceeded
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 3.修改tx超时时间改为15s
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 4.Read&nbsp;timed&nbsp;out&nbsp;executing&nbsp;GET&nbsp;http://dapp-eth-server/inner/wallet/initWallets?userOpenId=ddb777b9-b781-4efc-a2a4-c27c924960c4这个错误和lcn事物不提交是否有关系？
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ ##07.03
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ ##07.04
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 1.把服务部署到50机上面
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 2.看Jvm、基本类型相关知识点
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ ##07.08
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 1.设置mysql
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ SHOW&nbsp;VARIABLES&nbsp;LIKE&nbsp;'innodb_lock_wait_timeout';
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ SHOW&nbsp;GLOBAL&nbsp;VARIABLES&nbsp;LIKE&nbsp;'innodb_lock_wait_timeout';
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ SET&nbsp;innodb_lock_wait_timeout=120;
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ SET&nbsp;GLOBAL&nbsp;innodb_lock_wait_timeout=120;
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ SHOW&nbsp;PROCESSLIST
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ SHOW&nbsp;PROFILE&nbsp;FOR&nbsp;QUERY&nbsp;8;
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ SHOW&nbsp;PROFILE&nbsp;FOR&nbsp;QUERY&nbsp;1;
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ SHOW&nbsp;VARIABLES&nbsp;LIKE&nbsp;"%timeout%";
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ SET&nbsp;GLOBAL&nbsp;wait_timeout=2000;
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ SET&nbsp;GLOBAL&nbsp;interactive_timeout=2000;
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ ##07.09
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 1.Deadlock&nbsp;found&nbsp;when&nbsp;trying&nbsp;to&nbsp;get&nbsp;lock;&nbsp;try&nbsp;restarting&nbsp;transaction，解决：
+ <a href="https://cloud.tencent.com/developer/article/1356959"><span style="color:#003884;text-decoration:underline;">https://cloud.tencent.com/developer/article/1356959</span></a>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 2.feign&nbsp;Read&nbsp;timed&nbsp;out&nbsp;executing&nbsp;GET
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 3.Lock&nbsp;wait&nbsp;timeout&nbsp;exceeded;&nbsp;try&nbsp;restarting&nbsp;transaction
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 4.com.mysql.jdbc.exceptions.jdbc4.MySQLTransactionRollbackException:&nbsp;Lock&nbsp;wait&nbsp;timeout&nbsp;exceeded;&nbsp;try&nbsp;restarting&nbsp;transaction
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 5.Communications&nbsp;link&nbsp;failure&nbsp;&nbsp;
+ <a href="https://m635674608.iteye.com/blog/2302281"><span style="color:#003884;text-decoration:underline;">https://m635674608.iteye.com/blog/2302281</span></a>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ app.gswalleta.com
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 210.56.60.23&nbsp;
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ ##07.12
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ sleep&nbsp;
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ lazy
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ ##07.24
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 1.增加了市商首次曾金配置表
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="color:#393939;">CREATE&nbsp;TABLE&nbsp;`dapp_mlf_business_first`&nbsp;(</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="color:#393939;">&nbsp;&nbsp;`id`&nbsp;char(36)&nbsp;NOT&nbsp;NULL,</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="color:#393939;">&nbsp;&nbsp;`min_limit`&nbsp;decimal(20,8)&nbsp;DEFAULT&nbsp;NULL,</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="color:#393939;">&nbsp;&nbsp;`max_limit`&nbsp;decimal(20,8)&nbsp;DEFAULT&nbsp;NULL,</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="color:#393939;">&nbsp;&nbsp;`give_amount`&nbsp;decimal(20,8)&nbsp;DEFAULT&nbsp;NULL,</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="color:#393939;">&nbsp;&nbsp;`open_give`&nbsp;char(5)&nbsp;DEFAULT&nbsp;NULL&nbsp;COMMENT&nbsp;'是否开启首冲赠送usdt(on:开启,off:关闭)',</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="color:#393939;">&nbsp;&nbsp;PRIMARY&nbsp;KEY&nbsp;(`id`)</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <span style="color:#393939;">)&nbsp;ENGINE=InnoDB&nbsp;DEFAULT&nbsp;CHARSET=utf8mb4</span>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 2.修改首冲奖金记录表增加字段
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ `status`&nbsp;tinyint(2)&nbsp;DEFAULT&nbsp;'0'&nbsp;COMMENT&nbsp;'1:未释放,2:已经释放',
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ &nbsp;`amount`&nbsp;decimal(20,16)&nbsp;NOT&nbsp;NULL&nbsp;COMMENT&nbsp;'首冲的数量',
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ ##07.31
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 1.金钱包项目第一期开发收尾
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 2.dapp_mlf_business_charge_log&nbsp;表添加&nbsp;level_id&nbsp;字段
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ ##08.01
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 1.市商首冲配置、推荐奖金配置
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 2.奖金
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ ##08.02
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 1.需求评审会议
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 2.一键出售购买接口
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ ##08.03
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 1.28.985507&nbsp;&nbsp;471.014493
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 2.分析：系统内两种情况会冻结余额。
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ &nbsp;&nbsp;&nbsp;&nbsp;a.发布卖的广告
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ &nbsp;&nbsp;&nbsp;&nbsp;b.在出售大厅下单，出售大厅的下单，卖家买家都无法主动取消，等待订单超时后，取消订单。
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ &nbsp;&nbsp;&nbsp;&nbsp;bug：在出售大厅，卖家下单，买家不付款，超时后，卖家冻结的下单数量不会转到可用。
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ &nbsp;&nbsp;&nbsp;&nbsp;bug已修改
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ &nbsp;&nbsp;&nbsp;&nbsp;订单类型
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ &nbsp;&nbsp;&nbsp;&nbsp;a.BUY：用户在广告购买大厅，发起交易，买的行为，自己可以取消订单
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ &nbsp;&nbsp;&nbsp;&nbsp;b.SELL：用户在广告出售大厅，与买的广告单产生订单关系，双方不能主动取消订单。还会冻结用户自己的出售余额
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ &nbsp;&nbsp;&nbsp;&nbsp;所以
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ &nbsp;&nbsp;&nbsp;&nbsp;一键购买：匹配到广告后，和BUY的操作差不多
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ &nbsp;&nbsp;&nbsp;&nbsp;一键出售：匹配到广告后，和SELL的操作差不多，产生订单时会冻结自己的余额
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ ##08.04
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 1.一键出售接口编码、测试
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 2.bug修改，第三方提现，取消订单未回退冻结金额
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 3.对比eth代码，修改奖金一些代码
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ ##08.08
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 1.修改禅道bug
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 2.
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ ##08.09
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ 1.10级困，这样下去会出问题
+</div>
+<div yne-bulb-block="paragraph" style="white-space: pre-wrap;">
+ <br>
+</div></div><ul class="post-copyright"><li><strong>Post Title: </strong><a href="https://HR2812.cn/2019/06/12/crawl-ydybj-1560241659811/">working note</a></li><li><strong>Post Author: </strong><a href="https://HR2812.cn">HeRui</a></li><li><strong>Post Link: </strong><a href="https://HR2812.cn/2019/06/12/crawl-ydybj-1560241659811/">https://HR2812.cn/2019/06/12/crawl-ydybj-1560241659811/</a></li><li><strong>Copyright Notice: </strong><span>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</span></li></ul><div><div class="recommend-post"><span class="is-size-6 has-text-grey has-mr-7"># Related Post</span><br><span>  1.<a class="is-size-6" href="/2020/09/23/test/" target="_blank">test</a><br></span><span>  2.<a class="is-size-6" href="/2020/09/23/hello-world/" target="_blank">Hello World</a><br></span><span>  3.<a class="is-size-6" href="/2020/09/02/recently-life/" target="_blank">最近</a><br></span><span>  4.<a class="is-size-6" href="/2020/04/11/Java-code-optimization/" target="_blank">35 个 Java 代码优化魔鬼细节</a><br></span><span>  5.<a class="is-size-6" href="/2020/04/11/java-null-check/" target="_blank">如何在Java代码中去掉烦人的“!=null”</a><br></span><span>  6.<a class="is-size-6" href="/2020/03/25/spring-session-redis-problem-error-no-such-key/" target="_blank">解决使用redis作为session缓存报错Error:nosuchkey的问题</a><br></span><span>  7.<a class="is-size-6" href="/2020/03/21/springboot-controller-singleton-or-prototype/" target="_blank">springboot默认创建的bean是单实还是多例</a><br></span><span>  8.<a class="is-size-6" href="/2020/03/17/java-zip-file-optimize/" target="_blank">简直不敢想，我竟然把压缩20M文件从30秒优化到1秒...</a><br></span></div></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">Gefällt Ihnen der Artikel? Unterstützen Sie den Autor mit</h3><div class="buttons is-centered"><a class="button is-info donate"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>Alipay</span><span class="qrcode"><img src="https://raw.githubusercontent.com/removeif/blog_image/master/img/2019/20190802135456.png" alt="Alipay"></span></a><a class="button is-success donate"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>Wechat</span><span class="qrcode"><img src="https://raw.githubusercontent.com/removeif/blog_image/master/img/2019/20190802135550.png" alt="Wechat"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2019/06/12/crawl-ydybj-1560251581144/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">账号密码</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2019/06/12/crawl-ydybj-1560243002250/"><span class="level-item">1.说一说你理解的面向对象思想？</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><div class="title is-5">Kommentare</div><div id="comment-container"></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/gitalk/1.6.0/gitalk.css"><script> $.getScript('/js/gitalk.min.js', function () { 
+            var gitalk = new Gitalk({
+            language:'zh-CN',
+            id: 'a1fbfecbb2b2848718212e7dbec6e1ea',
+            repo: 'blog_comment',
+            owner: 'HeRui2812',
+            clientID: '20a7139eb84edb95032f',
+            clientSecret: '4d5f04ca884d6d9ac892145a888fd423e9163a1b',
+            admin: ["HeRui2812"],
+            createIssueManually: true,
+            distractionFreeMode: false,
+            perPage: 10,
+            pagerDirection: 'last',
+            
+            
+            enableHotKey: true,
+            isLocked: false
+        })
+        gitalk.render('comment-container')});</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><!--!--><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="is-rounded" src="/img/avatar.png" alt="肉の丸子"></figure><p class="title is-size-4 is-block line-height-inherit">肉の丸子</p><p class="is-size-6 is-block">红肉下锅，白丸入口</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>阿尔及利亚</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">75</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Kategorien</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">38</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://weibo.com/u/23050419984" target="_blank" rel="noopener">Folgen</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-white is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/HeRui2812"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-white is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/u/3050419984"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-white is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:760652415@qq.com"><i class="fa fa-envelope"></i></a><a class="level-item button is-transparent is-white is-marginless" target="_blank" rel="noopener" title="Next" href="https://HeRui2812.github.io"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-white is-marginless" target="_blank" rel="noopener" title="RSS" href="/atom.xml"><i class="fas fa-rss"></i></a></div><div><hr><p id="hitokoto">:D 一言句子获取中...</p><script type="text/javascript" defer>function getYiyan(){
+                                $.getJSON("https://v1.hitokoto.cn/", function (data) {
+                                if(data){
+                                    $('#hitokoto').html("");
+                                    $('#hitokoto').append("<strong style='color: #3273dc;'>"+data.hitokoto+"</strong>"+
+                                    "<p>"+"From《"+data.from+"》</p><p>Provider-"+data.creator+"</p>");
+                                }});}
+                                $(function (){getYiyan();$('#hitokoto').click(function(){getYiyan();})});</script></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">Latest Comment</h3><span class="body_hot_comment">Loading...Wait a Minute!</span></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">Letzte Einträge</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2020-09-23T02:07:32.000Z">2020-09-23</time></p><p class="title is-6"><a class="link-muted" href="/2020/09/23/test/">test</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-09-23T01:10:08.347Z">2020-09-23</time></p><p class="title is-6"><a class="link-muted" href="/2020/09/23/hello-world/">Hello World</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-09-01T17:54:17.000Z">2020-09-02</time></p><p class="title is-6"><a class="link-muted" href="/2020/09/02/recently-life/">最近</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-04-11T09:19:39.000Z">2020-04-11</time></p><p class="title is-6"><a class="link-muted" href="/2020/04/11/Java-code-optimization/">35 个 Java 代码优化魔鬼细节</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-04-11T06:14:25.000Z">2020-04-11</time></p><p class="title is-6"><a class="link-muted" href="/2020/04/11/java-null-check/">如何在Java代码中去掉烦人的“!=null”</a></p><p class="is-uppercase"></p></div></article></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archive</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2020/09/"><span class="level-start"><span class="level-item">September 2020</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/04/"><span class="level-start"><span class="level-item">April 2020</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/03/"><span class="level-start"><span class="level-item">March 2020</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/01/"><span class="level-start"><span class="level-item">January 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/12/"><span class="level-start"><span class="level-item">December 2019</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><a class="level is-mobile is-marginless" href="/archives/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B/"><span class="tag">记录一下</span><span class="tag is-grey-lightest">16</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Java/"><span class="tag">Java</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Mybatis/"><span class="tag">Mybatis</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9C%89%E9%81%93%E4%BA%91%E7%AC%94%E8%AE%B0/"><span class="tag">有道云笔记</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JavaScript/"><span class="tag">JavaScript</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Mysql/"><span class="tag">Mysql</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%9D%A2%E8%AF%95/"><span class="tag">面试</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Spring/"><span class="tag">Spring</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/123QQW/"><span class="tag">123QQW</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Angular/"><span class="tag">Angular</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hibernate/"><span class="tag">Hibernate</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Json/"><span class="tag">Json</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Resin/"><span class="tag">Resin</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Vue/"><span class="tag">Vue</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/redis/"><span class="tag">redis</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/velocity/"><span class="tag">velocity</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"><span class="tag">微服务</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><span class="tag">设计模式</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Element-UI/"><span class="tag">Element UI</span><span class="tag is-grey-lightest">1</span></a></div></div><div class="field is-grouped is-grouped-multiline"><a class="tags has-addons" href="/tags/"><span class="tag">查看全部&gt;&gt;</span></a></div></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe to Updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=removeifFeedsId&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="removeifFeedsId" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button is-primary" type="submit" value="Subscribe"></div></div><p class="help">输入邮箱开始订阅，更博后邮件通知！</p></form></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.png" alt="绿色薄荷" height="28"></a><p class="size-small"><span>&copy; 2020 HeRui</span>  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> &amp; <a href="https://github.com/removeif/hexo-theme-amazing" target="_blank">Amazing</a> <br><span>© <a href="http://www.beian.miit.gov.cn/" target="_blank">湘ICP备17014602号</a><br></span><span>© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请<a href="/message" target="_blank">留言</a>，立即处理]<br /></span><span><span id="statistic-times">loading...</span><script>function createTime(time) {
+            var n = new Date(time);
+            now.setTime(now.getTime() + 250),
+                days = (now - n) / 1e3 / 60 / 60 / 24,
+                dnum = Math.floor(days),
+                hours = (now - n) / 1e3 / 60 / 60 - 24 * dnum,
+                hnum = Math.floor(hours),
+            1 == String(hnum).length && (hnum = "0" + hnum),
+                minutes = (now - n) / 1e3 / 60 - 1440 * dnum - 60 * hnum,
+                mnum = Math.floor(minutes),
+            1 == String(mnum).length && (mnum = "0" + mnum),
+                seconds = (now - n) / 1e3 - 86400 * dnum - 3600 * hnum - 60 * mnum,
+                snum = Math.round(seconds),
+            1 == String(snum).length && (snum = "0" + snum),
+                document.getElementById("statistic-times").innerHTML = "❤️Site from <strong>"+time.split(" ")[0].replace(/\//g,".")+"</strong> has existed <strong>" + dnum + "</strong> d <strong>" + hnum + "</strong> h <strong>" + mnum + "</strong> m <strong>" + snum + "</strong> s！❤️";
+        }var now = new Date();setInterval("createTime('2020/09/22 00:00:00')", 250,"");</script><br></span><div class="size-small"><span>❤️Thx <strong><span id="busuanzi_value_site_uv">99+</span></strong> users <strong><span id="busuanzi_value_site_pv">99+</span></strong> visited！❤️</span></div></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/HeRui2812"><i class="fab fa-github"></i></a></p></div><div class="sideMusic"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="/js/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><meting-js style="width: auto;height: 2000px;" server="netease" type="playlist" id="2364053447" theme="#2980b9" loop="all" autoplay="false" order="list" storageName="aplayer-setting" lrctype="0" list-max-height="400px" fixed="true"></meting-js></div></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script>moment.locale("zh");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'https://HR2812.cn',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="Zurück nach oben" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back-to-top.js" defer></script><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.12/js/lightgallery-all.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js" defer></script><!--!--><!--!--><!--!--><script src="/js/toc.js" defer></script><script src="/js/main.js" defer></script><script>$.getScript('/js/comment-issue-data.js',function(){loadIssueData('20a7139eb84edb95032f','4d5f04ca884d6d9ac892145a888fd423e9163a1b','HeRui2812','blog_comment',false);})</script><link rel="stylesheet" href="/css/insight.css"><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="Tippen Sie etwas..."><span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"></div></div></div></div><script>(function (window) {
+            var INSIGHT_CONFIG = {
+                TRANSLATION: {
+                    POSTS: 'Posts',
+                    PAGES: 'Seiten',
+                    CATEGORIES: 'Kategorien',
+                    TAGS: 'Tags',
+                    UNTITLED: '(Unbenannt)',
+                },
+                CONTENT_URL: '/content.json',
+            };
+            window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+        })(window);</script><script src="/js/insight.js" defer></script></body></html>

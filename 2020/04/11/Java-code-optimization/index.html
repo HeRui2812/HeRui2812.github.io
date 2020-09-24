@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.1"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><meta name="keywords" content="[object Object]"><meta name="description" content="source: 雨梦coderhttps://mp.weixin.qq.com/s/GqZ4E2QG6h58DeKFyf8Pbg
+
+前言代码 优化 ，一个很重要的课题。可能有些人觉得没用，一些细小的地方有什么好修改的，改与不改对于代码的运行效率有什么影响呢？这个问题我是这么考虑的，就像大"><meta name="author" content="herui"><title>35 个 Java 代码优化魔鬼细节 - 绿色薄荷</title><meta description="source: 雨梦coderhttps:&amp;#x2F;&amp;#x2F;mp.weixin.qq.com&amp;#x2F;s&amp;#x2F;GqZ4E2QG6h58DeKFyf8Pbg  前言代码 优化 ，一个很重要的课题。可能有些人觉得没用，一些细小的地方有什么好修改的，改与不改对于代码的运行效率有什么影响呢？这个问题我是这么考虑的，就像大"><meta property="og:type" content="article"><meta property="og:title" content="35 个 Java 代码优化魔鬼细节"><meta property="og:url" content="https://hr2812.cn/2020/04/11/Java-code-optimization/"><meta property="og:site_name" content="肉の丸子"><meta property="og:description" content="source: 雨梦coderhttps:&amp;#x2F;&amp;#x2F;mp.weixin.qq.com&amp;#x2F;s&amp;#x2F;GqZ4E2QG6h58DeKFyf8Pbg  前言代码 优化 ，一个很重要的课题。可能有些人觉得没用，一些细小的地方有什么好修改的，改与不改对于代码的运行效率有什么影响呢？这个问题我是这么考虑的，就像大"><meta property="og:locale" content="zh"><meta property="article:published_time" content="2020-04-11T09:19:39.000Z"><meta property="article:modified_time" content="2020-09-23T09:58:19.887Z"><meta property="article:author" content="herui"><meta property="article:tag" content="Java"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://hr2812.cn/img/avatar.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://hr2812.cn/2020/04/11/Java-code-optimization/"},"headline":"35 个 Java 代码优化魔鬼细节","image":["https://hr2812.cn/img/avatar.png"],"datePublished":"2020-04-11T09:19:39.000Z","dateModified":"2020-09-23T09:58:19.887Z","author":{"@type":"Person","name":"herui"},"description":"source: 雨梦coderhttps:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s&#x2F;GqZ4E2QG6h58DeKFyf8Pbg  前言代码 优化 ，一个很重要的课题。可能有些人觉得没用，一些细小的地方有什么好修改的，改与不改对于代码的运行效率有什么影响呢？这个问题我是这么考虑的，就像大"}</script><link rel="alternative" href="/atom.xml" title="绿色薄荷" type="application/atom+xml"><link rel="icon" href="/img/favicon.png"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.12/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/e-style.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><link rel="stylesheet" href="/live2d/waifu.css"><script type="text/javascript" async src="/live2d/autoload.js"></script></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.png" alt="绿色薄荷" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/media">影音</a><a class="navbar-item" href="/album">相册</a><a class="navbar-item" href="/friend">友链</a><a class="navbar-item" href="/self-talking">碎碎念</a><a class="navbar-item" href="/message">留言</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/HeRui2812"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Suche" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2020-04-11  <a class="commentCountImg" href="/2020/04/11/Java-code-optimization/#comment-container"><span class="display-none-class">e26821b58c541c8bc0f7558d0c9a62de</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="e26821b58c541c8bc0f7558d0c9a62de">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>35 m  <i class="fas fa-pencil-alt"> </i>5.3 k</span><span class="level-item" id="busuanzi_container_page_pv"><i class="far fa-eye"></i>&nbsp;&nbsp;<span id="busuanzi_value_page_pv">0</span> Besuche</span></div></div><h1 class="title is-3 is-size-4-mobile">35 个 Java 代码优化魔鬼细节</h1><div class="content"><blockquote>
+<p>source: 雨梦coder<br><a href="https://mp.weixin.qq.com/s/GqZ4E2QG6h58DeKFyf8Pbg">https://mp.weixin.qq.com/s/GqZ4E2QG6h58DeKFyf8Pbg</a></p>
+</blockquote>
+<p>前言<br>代码 优化 ，一个很重要的课题。可能有些人觉得没用，一些细小的地方有什么好修改的，改与不改对于代码的运行效率有什么影响呢？这个问题我是这么考虑的，就像大</p>
+<a id="more"></a>
+<p>海里面的鲸鱼一样，它吃一条小虾米有用吗？没用，但是，吃的小虾米一多之后，鲸鱼就被喂饱了。</p>
+<p>代码优化也是一样，如果项目着眼于尽快无BUG上线，那么此时可以抓大放小，代码的细节可以不精打细磨；但是如果有足够的时间开发、维护代码，这时候就必须考虑每</p>
+<p>个可以优化的细节了，一个一个细小的优化点累积起来，对于代码的运行效率绝对是有提升的。</p>
+<p>代码优化的目标是：</p>
+<p>减小代码的体积</p>
+<p>提高代码运行的效率</p>
+<p>代码优化细节</p>
+<p>1、尽量指定类、方法的final修饰符</p>
+<p>带有final修饰符的类是不可派生的。在Java核心API中，有许多应用final的例子，例如java.lang.String，整个类都是final的。为类指定final修饰符可以让类不可以被</p>
+<p>继承，为方法指定final修饰符可以让方法不可以被重写。如果指定了一个类为final，则该类所有的方法都是final的。Java编译器会寻找机会内联所有的final方法，内联</p>
+<p>对于提升Java运行效率作用重大，具体参见Java运行期优化。此举能够使性能平均提高50% 。</p>
+<p>2、尽量重用对象</p>
+<p>特别是String对象的使用，出现字符串连接时应该使用StringBuilder/StringBuffer代替。由于Java虚拟机不仅要花时间生成对象，以后可能还需要花时间对这些对象进行</p>
+<p>垃圾回收和处理，因此，生成过多的对象将会给程序的性能带来很大的影响。</p>
+<p>3、尽可能使用局部变量</p>
+<p>调用方法时传递的参数以及在调用中创建的临时变量都保存在栈中速度较快，其他变量，如静态变量、实例变量等，都在堆中创建，速度较慢。另外，栈中创建的变量，随</p>
+<p>着方法的运行结束，这些内容就没了，不需要额外的垃圾回收。</p>
+<p>4、及时关闭流</p>
+<p>Java编程过程中，进行数据库连接、I/O流操作时务必小心，在使用完毕后，及时关闭以释放资源。因为对这些大对象的操作会造成系统大的开销，稍有不慎，将会导致严</p>
+<p>重的后果。如果条件允许，即JDK7以上，强烈建议使用try-with-resources。</p>
+<p>5、尽量减少对变量的重复计算</p>
+<p>明确一个概念，对方法的调用，即使方法中只有一句语句，也是有消耗的，包括创建栈帧、调用方法时保护现场、调用方法完毕时恢复现场等。所以例如下面的操作：</p>
+<p>建议替换为：</p>
+<p>这样，在list.size很大的时候，就减少了很多的消耗</p>
+<p>6、尽量采用懒加载的策略，即在需要的时候才创建*</p>
+<p>例如：</p>
+<p>建议替换为：</p>
+<p>7、慎用异常</p>
+<p>异常对性能不利。抛出异常首先要创建一个新的对象，Throwable接口的构造函数调用名为fillInStackTrace的本地同步方法，fillInStackTrace方法检查堆栈，收集调用</p>
+<p>跟踪信息。只要有异常被抛出，Java虚拟机就必须调整调用堆栈，因为在处理过程中创建了一个新的对象。异常只能用于错误处理，不应该用来控制程序流程。</p>
+<p>8、不要在循环中使用try…catch…，应该把其放在最外层</p>
+<p>除非不得已。如果毫无理由地这么写了，只要你的领导资深一点、有强迫症一点，八成就要骂你为什么写出这种垃圾代码来了。</p>
+<p>9、如果能估计到待添加的内容长度，为底层以数组方式实现的集合、工具类指定初始长度</p>
+<p>比如ArrayList、LinkedLlist、StringBuilder、StringBuffer、HashMap、HashSet等等，以StringBuilder为例：</p>
+<p>（1）StringBuilder // 默认分配16个字符的空间</p>
+<p>（2）StringBuilder(int size) // 默认分配size个字符的空间</p>
+<p>（3）StringBuilder(String str) // 默认分配16个字符+str.length个字符空间</p>
+<p>可以通过类（这里指的不仅仅是上面的StringBuilder）的来设定它的初始化容量，这样可以明显地提升性能。比如StringBuilder吧，length表示当前的StringBuilder能</p>
+<p>保持的字符数量。因为当StringBuilder达到最大容量的时候，它会将自身容量增加到当前的2倍再加2，无论何时只要StringBuilder达到它的最大容量，它就不得不创建一</p>
+<p>个新的字符数组然后将旧的字符数组内容拷贝到新字符数组中—-这是十分耗费性能的一个操作。试想，如果能预估到字符数组中大概要存放5000个字符而不指定长度，最</p>
+<p>接近5000的2次幂是4096，每次扩容加的2不管，那么：</p>
+<p>（1）在4096 的基础上，再申请8194个大小的字符数组，加起来相当于一次申请了12290个大小的字符数组，如果一开始能指定5000个大小的字符数组，就节省了一倍以上</p>
+<p>的空间；</p>
+<p>（2）把原来的4096个字符拷贝到新的的字符数组中去。</p>
+<p>这样，既浪费内存空间又降低代码运行效率。所以，给底层以数组实现的集合、工具类设置一个合理的初始化容量是错不了的，这会带来立竿见影的效果。但是，注意，像</p>
+<p>HashMap这种是以数组+链表实现的集合，别把初始大小和你估计的大小设置得一样，因为一个table上只连接一个对象的可能性几乎为0。初始大小建议设置为2的N次幂，如</p>
+<p>果能估计到有2000个元素，设置成new HashMap(128)、new HashMap(256)都可以。</p>
+<p>10、当复制大量数据时，使用System.arraycopy命令</p>
+<p>11、乘法和除法使用移位操作<br>例如：</p>
+<p>用移位操作可以极大地提高性能，因为在计算机底层，对位的操作是最方便、最快的，因此建议修改为：</p>
+<p>移位操作虽然快，但是可能会使代码不太好理解，因此最好加上相应的注释。</p>
+<p>12、循环内不要不断创建对象引用<br>例如：</p>
+<p>这种做法会导致内存中有count份Object对象引用存在，count很大的话，就耗费内存了，建议为改为：</p>
+<p>这样的话，内存中只有一份Object对象引用，每次new Object的时候，Object对象引用指向不同的Object罢了，但是内存中只有一份，这样就大大节省了内存空间了。</p>
+<p>13、基于效率和类型检查的考虑，应该尽可能使用array，无法确定数组大小时才使用ArrayList</p>
+<p>14、尽量使用HashMap、ArrayList、StringBuilder，除非线程安全需要，否则不推荐使用Hashtable、Vector、StringBuffer，后三者由于使用同步机制而导致了性能开销</p>
+<p>15、不要将数组声明为public static final<br>因为这毫无意义，这样只是定义了引用为static final，数组的内容还是可以随意改变的，将数组声明为public更是一个安全漏洞，这意味着这个数组可以被外部类所改变</p>
+<p>。</p>
+<p>16、尽量在合适的场合使用单例<br>使用单例可以减轻加载的负担、缩短加载的时间、提高加载的效率，但并不是所有地方都适用于单例，简单来说，单例主要适用于以下三个方面：<br>（1）控制资源的使用，通过线程同步来控制资源的并发访问<br>（2）控制实例的产生，以达到节约资源的目的<br>（3）控制数据的共享，在不建立直接关联的条件下，让多个不相关的进程或线程之间实现通信</p>
+<p>17、尽量避免随意使用静态变量<br>要知道，当某个对象被定义为static的变量所引用，那么gc通常是不会回收这个对象所占有的堆内存的，如：</p>
+<p>此时静态变量b的生命周期与A类相同，如果A类不被卸载，那么引用B指向的B对象会常驻内存，直到程序终止。</p>
+<p>18、及时清除不再需要的Session<br>为了清除不再活动的会话，许多应用服务器都有默认的会话超时时间，一般为30分钟。当应用服务器需要保存更多的会话时，如果内存不足，那么操作系统会把部分数据转</p>
+<p>移到磁盘，应用服务器也可能根据MRU（最近最频繁使用）算法把部分不活跃的会话转储到磁盘，甚至可能抛出内存不足的异常。如果会话要被转储到磁盘，那么必须要先</p>
+<p>被序列化，在大规模集群中，对对象进行序列化的代价是很昂贵的。因此，当会话不再需要时，应当及时调用HttpSession的invalidate方法清除会话。</p>
+<p>19、实现RandomAccess接口的集合比如ArrayList，应当使用最普通的for循环而不是foreach循环来遍历<br>这是JDK推荐给用户的。JDK API对于RandomAccess接口的解释是：实现RandomAccess接口用来表明其支持快速随机访问，此接口的主要目的是允许一般的算法更改其行为，</p>
+<p>从而将其应用到随机或连续访问列表时能提供良好的性能。实际经验表明，实现RandomAccess接口的类实例，假如是随机访问的，使用普通for循环效率将高于使用foreach</p>
+<p>循环；反过来，如果是顺序访问的，则使用Iterator会效率更高。可以使用类似如下的代码作判断：</p>
+<p>foreach循环的底层实现原理就是迭代器Iterator，参见Java语法糖1：可变长度参数以及foreach循环原理。所以后半句”反过来，如果是顺序访问的，则使用Iterator会</p>
+<p>效率更高”的意思就是顺序访问的那些类实例，使用foreach循环去遍历。</p>
+<p>20、使用同步代码块替代同步方法<br>这点在多线程模块中的synchronized锁方法块一文中已经讲得很清楚了，除非能确定一整个方法都是需要进行同步的，否则尽量使用同步代码块，避免对那些不需要进行同</p>
+<p>步的代码也进行了同步，影响了代码执行效率。</p>
+<p>21、将常量声明为static final，并以大写命名<br>这样在编译期间就可以把这些内容放入常量池中，避免运行期间计算生成常量的值。另外，将常量的名字以大写命名也可以方便区分出常量与变量。</p>
+<p>22、不要创建一些不使用的对象，不要导入一些不使用的类<br>这毫无意义，如果代码中出现”The value of the local variable i is not used”、”The import java.util is never used”，那么请删除这些无用的内容</p>
+<p>23、程序运行过程中避免使用反射<br>关于，请参见反射。反射是Java提供给用户一个很强大的功能，功能强大往往意味着效率不高。不建议在程序运行过程中使用尤其是频繁使用反射机制，特别是Method的</p>
+<p>invoke方法，如果确实有必要，一种建议性的做法是将那些需要通过反射加载的类在项目启动的时候通过反射实例化出一个对象并放入内存—-用户只关心和对端交互的时</p>
+<p>候获取最快的响应速度，并不关心对端的项目启动花多久时间。</p>
+<p>24、使用数据库连接池和线程池<br>这两个池都是用于重用对象的，前者可以避免频繁地打开和关闭连接，后者可以避免频繁地创建和销毁线程。</p>
+<p>25、使用带缓冲的输入输出流进行IO操作<br>带缓冲的输入输出流，即BufferedReader、BufferedWriter、BufferedInputStream、BufferedOutputStream，这可以极大地提升IO效率。</p>
+<p>26、顺序插入和随机访问比较多的场景使用ArrayList，元素删除和中间插入比较多的场景使用LinkedList这个，理解ArrayList和LinkedList的原理就知道了。</p>
+<p>27、不要让public方法中有太多的形参<br>public方法即对外提供的方法，如果给这些方法太多形参的话主要有两点坏处：<br>1、违反了面向对象的编程思想，Java讲求一切都是对象，太多的形参，和面向对象的编程思想并不契合<br>2、参数太多势必导致方法调用的出错概率增加<br>至于这个”太多”指的是多少个，3、4个吧。比如我们用JDBC写一个insertStudentInfo方法，有10个学生信息字段要插如Student表中，可以把这10个参数封装在一个实体</p>
+<p>类中，作为insert方法的形参。</p>
+<p>28、字符串变量和字符串常量equals的时候将字符串常量写在前面<br>这是一个比较常见的小技巧了，如果有以下代码：</p>
+<p>建议修改为：</p>
+<p>这么做主要是可以避免空指针异常。</p>
+<p>29、请知道，在java中if (i == 1)和if (1 == i)是没有区别的，但从阅读习惯上讲，建议使用前者<br>平时有人问，”if (i == 1)”和”if (1== i)”有没有区别，这就要从C/C++讲起。<br>在C/C++中，”if (i == 1)”判断条件成立，是以0与非0为基准的，0表示false，非0表示true，如果有这么一段代码：</p>
+<p>C/C++判断”i==1″不成立，所以以0表示，即false。但是如果：</p>
+<p>万一程序员一个不小心，把”if (i == 1)”写成”if (i = 1)”，这样就有问题了。在if之内将i赋值为1，if判断里面的内容非0，返回的就是true了，但是明明i为2，比</p>
+<p>较的值是1，应该返回的false。这种情况在C/C++的开发中是很可能发生的并且会导致一些难以理解的错误产生，所以，为了避免开发者在if语句中不正确的赋值操作，建</p>
+<p>议将if语句写为：</p>
+<p>这样，即使开发者不小心写成了”1 = i”，C/C++编译器也可以第一时间检查出来，因为我们可以对一个变量赋值i为1，但是不能对一个常量赋值1为i。<br>但是，在Java中，C/C++这种”if (i = 1)”的语法是不可能出现的，因为一旦写了这种语法，Java就会编译报错”Type mismatch: cannot convert from int to boolean</p>
+<p>”。但是，尽管Java的”if (i == 1)”和”if (1 == i)”在语义上没有任何区别，但是从阅读习惯上讲，建议使用前者会更好些。</p>
+<p>30、不要对数组使用toString方法<br>看一下对数组使用toString打印出来的是什么：</p>
+<p>结果是：</p>
+<p>本意是想打印出数组内容，却有可能因为数组引用is为空而导致空指针异常。不过虽然对数组toString没有意义，但是对集合toString是可以打印出集合里面的内容的，因</p>
+<p>为集合的父类AbstractCollections重写了Object的toString方法。</p>
+<p>31、不要对超出范围的基本数据类型做向下强制转型<br>这绝不会得到想要的结果：</p>
+<p>我们可能期望得到其中的某几位，但是结果却是：<br>1942892530<br>解释一下。Java中long是8个字节64位的，所以12345678901234在计算机中的表示应该是：<br>0000 0000 0000 0000 0000 1011 0011 1010 0111 0011 1100 1110 0010 1111 1111 0010<br>一个int型数据是4个字节32位的，从低位取出上面这串二进制数据的前32位是：<br>0111 0011 1100 1110 0010 1111 1111 0010<br>这串二进制表示为十进制1942892530，所以就是我们上面的控制台上输出的内容。从这个例子上还能顺便得到两个结论：<br>1、整型默认的数据类型是int，long l = 12345678901234L，这个数字已经超出了int的范围了，所以最后有一个L，表示这是一个long型数。顺便，浮点型的默认类型是</p>
+<p>double，所以定义float的时候要写成””float f = 3.5f”<br>2、接下来再写一句”int ii = l + i;”会报错，因为long + int是一个long，不能赋值给int</p>
+<p>32、公用的集合类中不使用的数据一定要及时remove掉<br>如果一个集合类是公用的（也就是说不是方法里面的属性），那么这个集合里面的元素是不会自动释放的，因为始终有引用指向它们。所以，如果公用集合里面的某些数据</p>
+<p>不使用而不去remove掉它们，那么将会造成这个公用集合不断增大，使得系统有内存泄露的隐患。</p>
+<p>33、把一个基本数据类型转为字符串，基本数据类型.toString是最快的方式、String.valueOf次之、数据+””最慢<br>把一个基本数据类型转为一般有三种方式，我有一个Integer型数据i，可以使用i.toString、String.valueOf(i)、i+””三种方式，三种方式的效率如何，看一个测试：</p>
+<p>运行结果为：</p>
+<p>所以以后遇到把一个基本数据类型转为String的时候，优先考虑使用toString方法。至于为什么，很简单：<br>1、String.valueOf方法底层调用了Integer.toString方法，但是会在调用前做空判断<br>2、Integer.toString方法就不说了，直接调用了<br>3、i + “”底层使用了StringBuilder实现，先用append方法拼接，再用toString方法获取字符串<br>三者对比下来，明显是2最快、1次之、3最慢。</p>
+<p>34、使用最有效率的方式去遍历Map<br>遍历Map的方式有很多，通常场景下我们需要的是遍历Map中的Key和Value，那么推荐使用的、效率最高的方式是：</p>
+<p>如果你只是想遍历一下这个Map的key值，那用”Set keySet = hm.keySet;”会比较合适一些</p>
+<p>35、对资源的close建议分开操作<br>意思是，比如我有这么一段代码：</p>
+<p>建议修改为：</p>
+<p>虽然有些麻烦，却能避免资源泄露。我想，如果没有修改过的代码，万一XXX.close抛异常了，那么就进入了cath块中了，YYY.close不会执行，YYY这块资源就不会回收了</p>
+<p>，一直占用着，这样的代码一多，是可能引起资源句柄泄露的。<br>而改为上面的写法之后，就保证了无论如何XXX和YYY都会被close掉。<br>如果JDK7以上，强烈建议使用try-with-resources。</p>
+</div><ul class="post-copyright"><li><strong>Post Title: </strong><a href="https://HR2812.cn/2020/04/11/Java-code-optimization/">35 个 Java 代码优化魔鬼细节</a></li><li><strong>Post Author: </strong><a href="https://HR2812.cn">HeRui</a></li><li><strong>Post Link: </strong><a href="https://HR2812.cn/2020/04/11/Java-code-optimization/">https://HR2812.cn/2020/04/11/Java-code-optimization/</a></li><li><strong>Copyright Notice: </strong><span>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</span></li></ul><div><div class="recommend-post"><span class="is-size-6 has-text-grey has-mr-7"># Related Post</span><br><span>  1.<a class="is-size-6" href="/2020/09/23/test/" target="_blank">test</a><br></span><span>  2.<a class="is-size-6" href="/2020/09/23/hello-world/" target="_blank">Hello World</a><br></span><span>  3.<a class="is-size-6" href="/2020/09/02/recently-life/" target="_blank">最近</a><br></span><span>  4.<a class="is-size-6" href="/2020/04/11/java-null-check/" target="_blank">如何在Java代码中去掉烦人的“!=null”</a><br></span><span>  5.<a class="is-size-6" href="/2020/03/25/spring-session-redis-problem-error-no-such-key/" target="_blank">解决使用redis作为session缓存报错Error:nosuchkey的问题</a><br></span><span>  6.<a class="is-size-6" href="/2020/03/21/springboot-controller-singleton-or-prototype/" target="_blank">springboot默认创建的bean是单实还是多例</a><br></span><span>  7.<a class="is-size-6" href="/2020/03/17/java-zip-file-optimize/" target="_blank">简直不敢想，我竟然把压缩20M文件从30秒优化到1秒...</a><br></span><span>  8.<a class="is-size-6" href="/2020/01/14/harsh-truths-that-will-make-you-a-better-person/" target="_blank">11111</a><br></span></div></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">Gefällt Ihnen der Artikel? Unterstützen Sie den Autor mit</h3><div class="buttons is-centered"><a class="button is-info donate"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>Alipay</span><span class="qrcode"><img src="https://raw.githubusercontent.com/removeif/blog_image/master/img/2019/20190802135456.png" alt="Alipay"></span></a><a class="button is-success donate"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>Wechat</span><span class="qrcode"><img src="https://raw.githubusercontent.com/removeif/blog_image/master/img/2019/20190802135550.png" alt="Wechat"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2020/09/02/recently-life/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">最近</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/04/11/java-null-check/"><span class="level-item">如何在Java代码中去掉烦人的“!=null”</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><div class="title is-5">Kommentare</div><div id="comment-container"></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/gitalk/1.6.0/gitalk.css"><script> $.getScript('/js/gitalk.min.js', function () { 
+            var gitalk = new Gitalk({
+            language:'zh-CN',
+            id: 'e26821b58c541c8bc0f7558d0c9a62de',
+            repo: 'blog_comment',
+            owner: 'HeRui2812',
+            clientID: '20a7139eb84edb95032f',
+            clientSecret: '4d5f04ca884d6d9ac892145a888fd423e9163a1b',
+            admin: ["HeRui2812"],
+            createIssueManually: true,
+            distractionFreeMode: false,
+            perPage: 10,
+            pagerDirection: 'last',
+            
+            
+            enableHotKey: true,
+            isLocked: false
+        })
+        gitalk.render('comment-container')});</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><!--!--><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="is-rounded" src="/img/avatar.png" alt="肉の丸子"></figure><p class="title is-size-4 is-block line-height-inherit">肉の丸子</p><p class="is-size-6 is-block">红肉下锅，白丸入口</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>阿尔及利亚</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">75</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Kategorien</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">38</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://weibo.com/u/23050419984" target="_blank" rel="noopener">Folgen</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-white is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/HeRui2812"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-white is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/u/3050419984"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-white is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:760652415@qq.com"><i class="fa fa-envelope"></i></a><a class="level-item button is-transparent is-white is-marginless" target="_blank" rel="noopener" title="Next" href="https://HeRui2812.github.io"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-white is-marginless" target="_blank" rel="noopener" title="RSS" href="/atom.xml"><i class="fas fa-rss"></i></a></div><div><hr><p id="hitokoto">:D 一言句子获取中...</p><script type="text/javascript" defer>function getYiyan(){
+                                $.getJSON("https://v1.hitokoto.cn/", function (data) {
+                                if(data){
+                                    $('#hitokoto').html("");
+                                    $('#hitokoto').append("<strong style='color: #3273dc;'>"+data.hitokoto+"</strong>"+
+                                    "<p>"+"From《"+data.from+"》</p><p>Provider-"+data.creator+"</p>");
+                                }});}
+                                $(function (){getYiyan();$('#hitokoto').click(function(){getYiyan();})});</script></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">Latest Comment</h3><span class="body_hot_comment">Loading...Wait a Minute!</span></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">Letzte Einträge</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2020-09-23T02:07:32.000Z">2020-09-23</time></p><p class="title is-6"><a class="link-muted" href="/2020/09/23/test/">test</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-09-23T01:10:08.347Z">2020-09-23</time></p><p class="title is-6"><a class="link-muted" href="/2020/09/23/hello-world/">Hello World</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-09-01T17:54:17.000Z">2020-09-02</time></p><p class="title is-6"><a class="link-muted" href="/2020/09/02/recently-life/">最近</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-04-11T09:19:39.000Z">2020-04-11</time></p><p class="title is-6"><a class="link-muted" href="/2020/04/11/Java-code-optimization/">35 个 Java 代码优化魔鬼细节</a></p><p class="is-uppercase"></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-04-11T06:14:25.000Z">2020-04-11</time></p><p class="title is-6"><a class="link-muted" href="/2020/04/11/java-null-check/">如何在Java代码中去掉烦人的“!=null”</a></p><p class="is-uppercase"></p></div></article></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archive</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2020/09/"><span class="level-start"><span class="level-item">September 2020</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/04/"><span class="level-start"><span class="level-item">April 2020</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/03/"><span class="level-start"><span class="level-item">March 2020</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/01/"><span class="level-start"><span class="level-item">January 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/12/"><span class="level-start"><span class="level-item">December 2019</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><a class="level is-mobile is-marginless" href="/archives/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B/"><span class="tag">记录一下</span><span class="tag is-grey-lightest">16</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Java/"><span class="tag">Java</span><span class="tag is-grey-lightest">11</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Mybatis/"><span class="tag">Mybatis</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9C%89%E9%81%93%E4%BA%91%E7%AC%94%E8%AE%B0/"><span class="tag">有道云笔记</span><span class="tag is-grey-lightest">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JavaScript/"><span class="tag">JavaScript</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Mysql/"><span class="tag">Mysql</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%9D%A2%E8%AF%95/"><span class="tag">面试</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Spring/"><span class="tag">Spring</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/123QQW/"><span class="tag">123QQW</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Angular/"><span class="tag">Angular</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hibernate/"><span class="tag">Hibernate</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Json/"><span class="tag">Json</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Resin/"><span class="tag">Resin</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Vue/"><span class="tag">Vue</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/redis/"><span class="tag">redis</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/velocity/"><span class="tag">velocity</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"><span class="tag">微服务</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><span class="tag">设计模式</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Element-UI/"><span class="tag">Element UI</span><span class="tag is-grey-lightest">1</span></a></div></div><div class="field is-grouped is-grouped-multiline"><a class="tags has-addons" href="/tags/"><span class="tag">查看全部&gt;&gt;</span></a></div></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe to Updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=removeifFeedsId&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="removeifFeedsId" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button is-primary" type="submit" value="Subscribe"></div></div><p class="help">输入邮箱开始订阅，更博后邮件通知！</p></form></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.png" alt="绿色薄荷" height="28"></a><p class="size-small"><span>&copy; 2020 HeRui</span>  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> &amp; <a href="https://github.com/removeif/hexo-theme-amazing" target="_blank">Amazing</a> <br><span>© <a href="http://www.beian.miit.gov.cn/" target="_blank">湘ICP备17014602号</a><br></span><span>© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请<a href="/message" target="_blank">留言</a>，立即处理]<br /></span><span><span id="statistic-times">loading...</span><script>function createTime(time) {
+            var n = new Date(time);
+            now.setTime(now.getTime() + 250),
+                days = (now - n) / 1e3 / 60 / 60 / 24,
+                dnum = Math.floor(days),
+                hours = (now - n) / 1e3 / 60 / 60 - 24 * dnum,
+                hnum = Math.floor(hours),
+            1 == String(hnum).length && (hnum = "0" + hnum),
+                minutes = (now - n) / 1e3 / 60 - 1440 * dnum - 60 * hnum,
+                mnum = Math.floor(minutes),
+            1 == String(mnum).length && (mnum = "0" + mnum),
+                seconds = (now - n) / 1e3 - 86400 * dnum - 3600 * hnum - 60 * mnum,
+                snum = Math.round(seconds),
+            1 == String(snum).length && (snum = "0" + snum),
+                document.getElementById("statistic-times").innerHTML = "❤️Site from <strong>"+time.split(" ")[0].replace(/\//g,".")+"</strong> has existed <strong>" + dnum + "</strong> d <strong>" + hnum + "</strong> h <strong>" + mnum + "</strong> m <strong>" + snum + "</strong> s！❤️";
+        }var now = new Date();setInterval("createTime('2020/09/22 00:00:00')", 250,"");</script><br></span><div class="size-small"><span>❤️Thx <strong><span id="busuanzi_value_site_uv">99+</span></strong> users <strong><span id="busuanzi_value_site_pv">99+</span></strong> visited！❤️</span></div></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/HeRui2812"><i class="fab fa-github"></i></a></p></div><div class="sideMusic"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="/js/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><meting-js style="width: auto;height: 2000px;" server="netease" type="playlist" id="2364053447" theme="#2980b9" loop="all" autoplay="false" order="list" storageName="aplayer-setting" lrctype="0" list-max-height="400px" fixed="true"></meting-js></div></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script>moment.locale("zh");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'https://HR2812.cn',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="Zurück nach oben" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back-to-top.js" defer></script><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.12/js/lightgallery-all.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js" defer></script><!--!--><!--!--><!--!--><script src="/js/toc.js" defer></script><script src="/js/main.js" defer></script><script>$.getScript('/js/comment-issue-data.js',function(){loadIssueData('20a7139eb84edb95032f','4d5f04ca884d6d9ac892145a888fd423e9163a1b','HeRui2812','blog_comment',false);})</script><link rel="stylesheet" href="/css/insight.css"><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="Tippen Sie etwas..."><span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"></div></div></div></div><script>(function (window) {
+            var INSIGHT_CONFIG = {
+                TRANSLATION: {
+                    POSTS: 'Posts',
+                    PAGES: 'Seiten',
+                    CATEGORIES: 'Kategorien',
+                    TAGS: 'Tags',
+                    UNTITLED: '(Unbenannt)',
+                },
+                CONTENT_URL: '/content.json',
+            };
+            window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+        })(window);</script><script src="/js/insight.js" defer></script></body></html>
